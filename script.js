@@ -1,135 +1,56 @@
-/* NAVBAR */
-(function initNavbar() {
-  const navbar = document.getElementById('navbar');
-  const burger = document.getElementById('navBurger');
-  const mobile = document.getElementById('navMobile');
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+const interactiveElements = document.querySelectorAll("a, button, input, textarea");
 
-  window.addEventListener('scroll', function () {
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-  });
+menuToggle.addEventListener("click", () => {
+  const isOpen = navLinks.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(isOpen));
+});
 
-  burger.addEventListener('click', function () {
-    burger.classList.toggle('open');
-    mobile.classList.toggle('open');
-  });
-
-  mobile.querySelectorAll('[data-scroll]').forEach(function (el) {
-    el.addEventListener('click', function () {
-      burger.classList.remove('open');
-      mobile.classList.remove('open');
-    });
-  });
-})();
-
-/* SMOOTH SCROLL */
-document.querySelectorAll('[data-scroll]').forEach(function (el) {
-  el.addEventListener('click', function () {
-    var target = document.getElementById(el.dataset.scroll);
-    if (target) target.scrollIntoView({ behavior: 'smooth' });
+document.querySelectorAll(".nav-links a").forEach((link) => {
+  link.addEventListener("click", () => {
+    navLinks.classList.remove("open");
+    menuToggle.setAttribute("aria-expanded", "false");
   });
 });
 
-/* SCROLL REVEAL */
-(function initReveal() {
-  var elements = document.querySelectorAll('.reveal');
-  if (!window.IntersectionObserver) {
-    elements.forEach(function (el) { el.classList.add('visible'); });
-    return;
-  }
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        var delay = entry.target.dataset.delay || 0;
-        setTimeout(function () { entry.target.classList.add('visible'); }, Number(delay));
+        entry.target.classList.add("visible");
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
-  elements.forEach(function (el) { observer.observe(el); });
-})();
+  },
+  { threshold: 0.16 }
+);
 
-/* STAGGER GRID */
-(function initStagger() {
-  var grids = document.querySelectorAll('[data-stagger-grid]');
-  if (!window.IntersectionObserver) return;
-  grids.forEach(function (grid) {
-    var children = Array.from(grid.children);
-    children.forEach(function (child) {
-      child.style.opacity = '0';
-      child.style.transform = 'translateY(40px)';
-      child.style.transition = 'opacity .6s ease, transform .6s ease';
-    });
-    var observer = new IntersectionObserver(function (entries) {
-      if (entries[0].isIntersecting) {
-        children.forEach(function (child, i) {
-          setTimeout(function () {
-            child.style.opacity = '1';
-            child.style.transform = 'translateY(0)';
-          }, i * 80);
-        });
-        observer.unobserve(grid);
-      }
-    }, { threshold: 0.1 });
-    observer.observe(grid);
-  });
-})();
+document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 
-/* HERO COUNTERS */
-(function initCounters() {
-  var counters = document.querySelectorAll('[data-count]');
-  if (!window.IntersectionObserver) return;
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      var el = entry.target;
-      var target = parseInt(el.dataset.count, 10);
-      var suffix = el.dataset.suffix || '';
-      var duration = 1500;
-      var start = performance.now();
-      function step(now) {
-        var elapsed = now - start;
-        var progress = Math.min(elapsed / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(eased * target) + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-      observer.unobserve(el);
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(function (el) { observer.observe(el); });
-})();
-
-/* SERVICE CARD HOVER */
-document.querySelectorAll('.service-card').forEach(function (card) {
-  var icon = card.querySelector('.service-icon');
-  card.addEventListener('mouseenter', function () {
-    if (icon) icon.style.background = '#0077B6';
-    var svg = icon && icon.querySelector('svg');
-    if (svg) svg.style.stroke = '#ffffff';
-  });
-  card.addEventListener('mouseleave', function () {
-    if (icon) icon.style.background = '#eff6ff';
-    var svg = icon && icon.querySelector('svg');
-    if (svg) svg.style.stroke = '#0077B6';
-  });
+window.addEventListener("mousemove", (event) => {
+  document.documentElement.style.setProperty("--cursor-x", `${event.clientX}px`);
+  document.documentElement.style.setProperty("--cursor-y", `${event.clientY}px`);
 });
 
-/* FOOTER YEAR */
-var yearEl = document.getElementById('footerYear');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
+interactiveElements.forEach((element) => {
+  element.addEventListener("mouseenter", () => document.body.classList.add("cursor-active"));
+  element.addEventListener("mouseleave", () => document.body.classList.remove("cursor-active"));
+});
 
-/* ACTIVE NAV */
-(function initActiveNav() {
-  var sections = ['home', 'services', 'reviews', 'contact'];
-  window.addEventListener('scroll', function () {
-    var scrollY = window.scrollY + 100;
-    sections.forEach(function (id) {
-      var section = document.getElementById(id);
-      if (!section) return;
-      var top = section.offsetTop;
-      var height = section.offsetHeight;
-      if (scrollY >= top && scrollY < top + height) { /* CSS handles styling */ }
-    });
-  });
-})();
+window.addEventListener("scroll", () => {
+  const movement = Math.min(window.scrollY * 0.05, 34);
+  document.documentElement.style.setProperty("--scroll-lift", `${movement}px`);
+});
+
+document.getElementById("contactForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const message = document.getElementById("message").value.trim();
+  const whatsappNumber = "917228853849";
+  const text = `Hello Public Influence Media, my name is ${name}. Phone: ${phone}. Requirement: ${message}`;
+
+  window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, "_blank");
+});
