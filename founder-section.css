@@ -1,139 +1,327 @@
-/* Public Influence Media — Founder section
-   Add this file to your project and link it from the page <head>. */
-.pim-founder,
-.pim-founder * { box-sizing: border-box; }
+
+/* =========================================
+   PUBLIC INFLUENCE MEDIA
+   LUXURY FOUNDER EXPERIENCE
+   ========================================= */
 
 .pim-founder {
-  width: 100%;
-  padding: clamp(56px, 8vw, 104px) 22px;
-  background: #fff;
-  color: #111827;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 115px 25px;
+  background: #080e1b;
+  color: #fff;
   font-family: inherit;
 }
 
-.pim-founder__container {
-  width: min(1150px, 100%);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(280px, .9fr) minmax(0, 1.1fr);
-  align-items: center;
-  gap: clamp(36px, 7vw, 78px);
+.pim-founder *,
+.pim-founder *::before,
+.pim-founder *::after {
+  box-sizing: border-box;
 }
 
-.pim-founder__photo-wrap {
+/* Ambient background */
+
+.pim-founder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 55px 55px;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+.pim-founder::after {
+  content: "";
+  position: absolute;
+  width: 550px;
+  height: 550px;
+  top: -250px;
+  right: -100px;
+  z-index: -1;
+  border-radius: 50%;
+  background: rgba(37,99,235,.17);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+/* Main layout */
+
+.pim-founder-container {
+  position: relative;
+  max-width: 1190px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  align-items: center;
+  gap: 95px;
+}
+
+/* Photo frame */
+
+.pim-founder-image {
   position: relative;
   width: 100%;
   max-width: 440px;
-  overflow: hidden;
-  border-radius: 8px;
-  background: #f4eee7;
+  padding: 12px;
+  border: 1px solid rgba(96,165,250,.38);
+  background: linear-gradient(
+    145deg,
+    rgba(37,99,235,.24),
+    rgba(255,255,255,.025)
+  );
+  border-radius: 7px;
 }
 
-.pim-founder__photo {
-  display: block;
-  width: 100%;
-  height: 540px;
-  object-fit: cover;
-  object-position: center 18%;
-}
-
-.pim-founder__photo-label {
+.pim-founder-image::before {
+  content: "";
   position: absolute;
-  left: 18px;
-  bottom: 18px;
-  padding: 12px 15px;
-  background: rgba(255,255,255,.94);
-  color: #111827;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.8px;
+  width: 110px;
+  height: 110px;
+  right: -28px;
+  top: -28px;
+  border-top: 2px solid #3b82f6;
+  border-right: 2px solid #3b82f6;
+  pointer-events: none;
 }
 
-.pim-founder__eyebrow {
-  margin: 0 0 20px;
-  color: #2563eb;
-  font-size: 11px;
+.pim-founder-image::after {
+  content: "PIM / FOUNDER";
+  position: absolute;
+  left: -45px;
+  bottom: 70px;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  color: rgba(255,255,255,.45);
+  font-size: 9px;
+  letter-spacing: 4px;
+  font-weight: 700;
+}
+
+.pim-founder-image img {
+  position: relative;
+  display: block;
+  z-index: 1;
+  width: 100%;
+  height: 545px;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 3px;
+  filter: saturate(.94);
+  transition: transform .6s ease, filter .6s ease;
+}
+
+.pim-founder-image:hover img {
+  transform: scale(1.015);
+  filter: saturate(1.08);
+}
+
+/* Photo badge */
+
+.pim-founder-label {
+  position: absolute;
+  z-index: 3;
+  left: 25px;
+  bottom: 25px;
+  padding: 13px 17px;
+  background: rgba(8,14,27,.88);
+  backdrop-filter: blur(12px);
+  border-left: 3px solid #3b82f6;
+  color: white;
+  font-size: 9px;
   font-weight: 700;
   letter-spacing: 2.5px;
 }
 
-.pim-founder__headline {
-  margin: 0 0 28px;
-  color: #111827;
-  font-size: clamp(38px, 5vw, 58px);
+/* Content */
+
+.pim-founder-content {
+  position: relative;
+  z-index: 2;
+}
+
+.pim-founder-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 28px;
+  color: #60a5fa;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.pim-founder-eyebrow::before {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: #3b82f6;
+}
+
+.pim-founder-content h2 {
+  margin: 0 0 40px;
+  color: #f8fafc;
+  font-size: clamp(42px, 5vw, 68px);
   font-weight: 800;
   line-height: 1.08;
-  letter-spacing: -2.2px;
+  letter-spacing: -3px;
 }
 
-.pim-founder__headline span { color: #2563eb; }
-
-.pim-founder__name {
-  margin: 0 0 8px;
-  color: #111827;
-  font-size: 25px;
-  font-weight: 750;
-  letter-spacing: .3px;
+.pim-founder-content h2 span {
+  color: #60a5fa;
+  text-shadow: 0 0 35px rgba(59,130,246,.25);
 }
 
-.pim-founder__role {
+/* Founder identity */
+
+.pim-founder-content h3 {
+  margin: 0 0 10px;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.pim-founder-role {
   margin: 0;
-  color: #2563eb;
+  color: #60a5fa;
   font-size: 14px;
   font-weight: 700;
+  letter-spacing: 1px;
 }
 
-.pim-founder__role span {
-  color: #737987;
+.pim-founder-role span {
+  display: block;
+  margin-top: 8px;
+  color: #94a3b8;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .5px;
+}
+
+/* Divider */
+
+.pim-founder-line {
+  width: 75px;
+  height: 3px;
+  margin: 32px 0;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa, transparent);
+}
+
+/* Message */
+
+.pim-founder-message {
+  max-width: 510px;
+  margin: 0;
+  color: #b6c2d2;
+  font-size: 16px;
+  line-height: 1.95;
   font-weight: 400;
 }
 
-.pim-founder__rule {
-  display: block;
-  width: 54px;
-  height: 3px;
-  margin: 27px 0 22px;
-  background: #2563eb;
-}
+/* CTA */
 
-.pim-founder__message {
-  max-width: 540px;
-  margin: 0;
-  color: #626b78;
-  font-size: 16px;
-  line-height: 1.85;
-}
-
-.pim-founder__button {
+.pim-founder-button {
   display: inline-flex;
   align-items: center;
-  gap: 18px;
-  margin-top: 26px;
-  padding: 15px 21px;
-  border: 1px solid #111827;
-  border-radius: 4px;
-  background: #111827;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 35px;
+  padding: 17px 25px;
   color: #fff;
-  font-size: 13px;
-  font-weight: 650;
-  text-decoration: none;
-  transition: background .2s ease, border-color .2s ease, transform .2s ease;
-}
-
-.pim-founder__button:hover {
   background: #2563eb;
-  border-color: #2563eb;
-  transform: translateY(-2px);
+  border: 1px solid #3b82f6;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  box-shadow: 0 10px 35px rgba(37,99,235,.18);
+  transition: .3s ease;
 }
 
-@media (max-width: 760px) {
-  .pim-founder { padding: 54px 20px; }
-  .pim-founder__container { grid-template-columns: 1fr; gap: 32px; }
-  .pim-founder__photo-wrap { max-width: 100%; }
-  .pim-founder__photo { height: min(112vw, 480px); object-position: center 15%; }
-  .pim-founder__headline { font-size: clamp(36px, 10vw, 46px); letter-spacing: -1.5px; }
+.pim-founder-button:hover {
+  background: #fff;
+  color: #101827;
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(37,99,235,.25);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .pim-founder__button { transition: none; }
+/* Tablet */
+
+@media (max-width: 900px) {
+  .pim-founder {
+    padding: 85px 25px;
+  }
+
+  .pim-founder-container {
+    gap: 55px;
+  }
+
+  .pim-founder-image img {
+    height: 450px;
+  }
+
+  .pim-founder-content h2 {
+    font-size: 46px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+  .pim-founder {
+    padding: 70px 22px;
+  }
+
+  .pim-founder-container {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .pim-founder-image {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .pim-founder-image img {
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  .pim-founder-image::before {
+    right: -10px;
+    top: -10px;
+    width: 75px;
+    height: 75px;
+  }
+
+  .pim-founder-image::after {
+    left: -27px;
+  }
+
+  .pim-founder-content h2 {
+    font-size: 43px;
+    letter-spacing: -2px;
+  }
+
+  .pim-founder-content h3 {
+    font-size: 25px;
+  }
+
+  .pim-founder-message {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .pim-founder-button {
+    width: 100%;
+    justify-content: space-between;
+  }
 }
