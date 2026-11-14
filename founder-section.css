@@ -1,0 +1,139 @@
+/* Public Influence Media — Founder section
+   Add this file to your project and link it from the page <head>. */
+.pim-founder,
+.pim-founder * { box-sizing: border-box; }
+
+.pim-founder {
+  width: 100%;
+  padding: clamp(56px, 8vw, 104px) 22px;
+  background: #fff;
+  color: #111827;
+  font-family: inherit;
+}
+
+.pim-founder__container {
+  width: min(1150px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(280px, .9fr) minmax(0, 1.1fr);
+  align-items: center;
+  gap: clamp(36px, 7vw, 78px);
+}
+
+.pim-founder__photo-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f4eee7;
+}
+
+.pim-founder__photo {
+  display: block;
+  width: 100%;
+  height: 540px;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+.pim-founder__photo-label {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  padding: 12px 15px;
+  background: rgba(255,255,255,.94);
+  color: #111827;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+}
+
+.pim-founder__eyebrow {
+  margin: 0 0 20px;
+  color: #2563eb;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.pim-founder__headline {
+  margin: 0 0 28px;
+  color: #111827;
+  font-size: clamp(38px, 5vw, 58px);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -2.2px;
+}
+
+.pim-founder__headline span { color: #2563eb; }
+
+.pim-founder__name {
+  margin: 0 0 8px;
+  color: #111827;
+  font-size: 25px;
+  font-weight: 750;
+  letter-spacing: .3px;
+}
+
+.pim-founder__role {
+  margin: 0;
+  color: #2563eb;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pim-founder__role span {
+  color: #737987;
+  font-weight: 400;
+}
+
+.pim-founder__rule {
+  display: block;
+  width: 54px;
+  height: 3px;
+  margin: 27px 0 22px;
+  background: #2563eb;
+}
+
+.pim-founder__message {
+  max-width: 540px;
+  margin: 0;
+  color: #626b78;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.pim-founder__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 26px;
+  padding: 15px 21px;
+  border: 1px solid #111827;
+  border-radius: 4px;
+  background: #111827;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.pim-founder__button:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 760px) {
+  .pim-founder { padding: 54px 20px; }
+  .pim-founder__container { grid-template-columns: 1fr; gap: 32px; }
+  .pim-founder__photo-wrap { max-width: 100%; }
+  .pim-founder__photo { height: min(112vw, 480px); object-position: center 15%; }
+  .pim-founder__headline { font-size: clamp(36px, 10vw, 46px); letter-spacing: -1.5px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pim-founder__button { transition: none; }
+}
