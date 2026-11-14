@@ -191,7 +191,225 @@
       <a href="#contact">Contact</a>
     </nav>
   </header>
+<!--
+  PUBLIC INFLUENCE MEDIA — SEO CONTENT SECTION
+  Add this section inside your homepage <body>, preferably after
+  your main services section and before the footer.
+  Keep the styling below, or move it into your main CSS file.
+-->
+<style>
+  .pim-seo-content {
+    --pim-seo-blue: #2563eb;
+    --pim-seo-ink: #101828;
+    --pim-seo-muted: #667085;
+    padding: clamp(56px, 7vw, 88px) 22px;
+    background: #f8fafc;
+    color: var(--pim-seo-ink);
+    font-family: inherit;
+  }
+  .pim-seo-wrap { width: min(1120px, 100%); margin: 0 auto; }
+  .pim-seo-kicker {
+    margin: 0 0 14px; color: var(--pim-seo-blue);
+    font-size: 12px; font-weight: 800; letter-spacing: .16em;
+    text-transform: uppercase;
+  }
+  .pim-seo-content h2 {
+    max-width: 820px; margin: 0 0 18px;
+    font-size: clamp(30px, 4vw, 48px); line-height: 1.12;
+    letter-spacing: -.045em; font-weight: 800;
+  }
+  .pim-seo-content h2 span { color: var(--pim-seo-blue); }
+  .pim-seo-intro {
+    max-width: 820px; margin: 0 0 34px; color: var(--pim-seo-muted);
+    font-size: 16px; line-height: 1.85;
+  }
+  .pim-seo-grid {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+  .pim-seo-card {
+    padding: 24px; border: 1px solid #e4eaf3; border-radius: 16px;
+    background: #fff; box-shadow: 0 10px 30px rgba(16,24,40,.035);
+  }
+  .pim-seo-card h3 { margin: 0 0 10px; font-size: 19px; letter-spacing: -.02em; }
+  .pim-seo-card p { margin: 0; color: var(--pim-seo-muted); line-height: 1.8; font-size: 15px; }
+  .pim-seo-locations {
+    margin-top: 20px; padding: 24px; border-radius: 16px;
+    background: #102a56; color: #fff;
+  }
+  .pim-seo-locations h3 { margin: 0 0 9px; font-size: 19px; }
+  .pim-seo-locations p { margin: 0; color: #dbeafe; line-height: 1.8; }
+  .pim-seo-faq { margin-top: 46px; }
+  .pim-seo-faq h3 { margin: 0 0 18px; font-size: 26px; }
+  .pim-seo-faq details {
+    padding: 18px 2px; border-bottom: 1px solid #e1e7ef;
+  }
+  .pim-seo-faq summary {
+    cursor: pointer; color: var(--pim-seo-ink);
+    font-weight: 700; line-height: 1.5;
+  }
+  .pim-seo-faq details p {
+    margin: 12px 0 0; color: var(--pim-seo-muted);
+    line-height: 1.8; font-size: 15px;
+  }
+  .pim-seo-cta {
+    margin-top: 30px; display: flex; flex-wrap: wrap;
+    align-items: center; justify-content: space-between; gap: 18px;
+    padding: 24px; border-radius: 16px; background: #eaf1ff;
+  }
+  .pim-seo-cta p { margin: 0; font-weight: 700; line-height: 1.6; }
+  .pim-seo-cta a {
+    display: inline-flex; padding: 13px 20px; border-radius: 8px;
+    background: var(--pim-seo-blue); color: #fff; text-decoration: none;
+    font-size: 14px; font-weight: 750;
+  }
+  .pim-seo-cta a:hover { background: #174fc5; }
+  @media (max-width: 700px) {
+    .pim-seo-grid { grid-template-columns: 1fr; }
+    .pim-seo-card { padding: 20px; }
+    .pim-seo-cta { align-items: flex-start; flex-direction: column; }
+  }
+</style>
 
+<section class="pim-seo-content" aria-labelledby="pim-seo-heading">
+  <div class="pim-seo-wrap">
+    <p class="pim-seo-kicker">Digital Growth • Strategy • Technology</p>
+    <h2 id="pim-seo-heading">A Digital Marketing Agency Focused on <span>Measurable Growth</span></h2>
+    <p class="pim-seo-intro">
+      Public Influence Media is a digital marketing, branding and technology agency
+      based in Ghaziabad, helping businesses build a stronger online presence.
+      We combine thoughtful strategy, creative communication and technology to help
+      brands reach the right audience, generate qualified enquiries and grow online.
+    </p>
+
+    <div class="pim-seo-grid">
+      <article class="pim-seo-card">
+        <h3>Search Engine & Local SEO</h3>
+        <p>
+          Improve your visibility when potential customers search for your products
+          or services. Our SEO services include website optimisation, local SEO,
+          keyword research, on-page improvements and Google Business Profile
+          optimisation for relevant local searches.
+        </p>
+      </article>
+
+      <article class="pim-seo-card">
+        <h3>Google Ads & Performance Marketing</h3>
+        <p>
+          Reach people actively looking for your services with carefully planned
+          Google Ads and PPC campaigns. We focus on relevant targeting, persuasive
+          landing pages, conversion tracking and ongoing campaign optimisation.
+        </p>
+      </article>
+
+      <article class="pim-seo-card">
+        <h3>Social Media & Meta Ads</h3>
+        <p>
+          Build a consistent brand presence with social media strategy, content
+          creation, Instagram and Facebook management, creative campaigns and
+          Meta Ads designed around your business goals.
+        </p>
+      </article>
+
+      <article class="pim-seo-card">
+        <h3>Website Design & Development</h3>
+        <p>
+          Create a professional digital experience with responsive website design,
+          business websites, e-commerce websites, landing pages and UI/UX
+          improvements that make it easier for visitors to understand your offer
+          and contact your business.
+        </p>
+      </article>
+
+      <article class="pim-seo-card">
+        <h3>Branding, Content & Creative Production</h3>
+        <p>
+          Give your business a recognisable identity through logo and brand identity,
+          graphic design, copywriting, content marketing, reels, video editing,
+          motion graphics and commercial video production.
+        </p>
+      </article>
+
+      <article class="pim-seo-card">
+        <h3>Lead Generation & Online Reputation</h3>
+        <p>
+          Support your sales pipeline with lead generation campaigns, conversion
+          focused creatives, analytics, CRM integration, marketing automation and
+          online reputation management (ORM).
+        </p>
+      </article>
+    </div>
+
+    <div class="pim-seo-locations">
+      <h3>Local knowledge. Wider reach.</h3>
+      <p>
+        We work with businesses in Ghaziabad and the wider Delhi NCR region,
+        including Indirapuram and Noida. If you are looking for a digital marketing
+        agency in your area, contact Public Influence Media to discuss your
+        business goals, target audience and the right digital strategy.
+      </p>
+    </div>
+
+    <div class="pim-seo-faq">
+      <h3>Frequently Asked Questions</h3>
+
+      <details>
+        <summary>What services does Public Influence Media provide?</summary>
+        <p>
+          Public Influence Media provides SEO, local SEO, Google Business Profile
+          optimisation, Google Ads, PPC management, social media marketing,
+          Meta Ads, website design and development, branding, content creation,
+          video production, lead generation and online reputation management.
+        </p>
+      </details>
+
+      <details>
+        <summary>Do you provide digital marketing services in Ghaziabad and Indirapuram?</summary>
+        <p>
+          We are based in Ghaziabad and serve businesses in Ghaziabad, Indirapuram,
+          Noida and the wider Delhi NCR region. Contact us to discuss your location
+          and requirements.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can you help my business appear in local Google searches?</summary>
+        <p>
+          We can help improve your local search presence through local SEO,
+          Google Business Profile optimisation, relevant website content,
+          accurate business information and a strategy focused on your service area.
+          Local visibility also depends on factors such as relevance, distance
+          and prominence.
+        </p>
+      </details>
+
+      <details>
+        <summary>Do you build SEO-friendly business websites?</summary>
+        <p>
+          Yes. We design and develop responsive business websites with clear
+          navigation, useful content, descriptive page titles and a structure
+          that helps visitors and search engines understand your services.
+        </p>
+      </details>
+
+      <details>
+        <summary>How can I get a digital marketing plan for my business?</summary>
+        <p>
+          Contact our team with your business type, location and growth goals.
+          We can discuss suitable services such as SEO, paid advertising,
+          social media marketing, website development or lead generation.
+        </p>
+      </details>
+    </div>
+
+    <div class="pim-seo-cta">
+      <p>Ready to strengthen your brand's digital presence?</p>
+      <a href="https://www.publicinfluencemedia.in/contact" aria-label="Contact Public Influence Media">
+        Discuss Your Project
+      </a>
+    </div>
+  </div>
+</section>
   <main>
     <section class="hero" id="home">
       <div class="hero-grid">
