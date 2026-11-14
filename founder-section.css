@@ -1,17 +1,18 @@
 
-/* =========================================
+/* ==========================================
    PUBLIC INFLUENCE MEDIA
-   LUXURY FOUNDER EXPERIENCE
-   ========================================= */
+   EDITORIAL CORPORATE FOUNDER SECTION
+========================================== */
 
 .pim-founder {
   position: relative;
-  isolation: isolate;
+  width: 100%;
+  padding: 105px 24px;
   overflow: hidden;
-  padding: 115px 25px;
-  background: #080e1b;
-  color: #fff;
+  background: #ffffff;
+  color: #111827;
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 .pim-founder *,
@@ -20,246 +21,219 @@
   box-sizing: border-box;
 }
 
-/* Ambient background */
+/* Subtle background decoration */
 
 .pim-founder::before {
-  content: "";
+  content: "PIM";
   position: absolute;
-  inset: 0;
-  z-index: -2;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size: 55px 55px;
-  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
-}
-
-.pim-founder::after {
-  content: "";
-  position: absolute;
-  width: 550px;
-  height: 550px;
-  top: -250px;
-  right: -100px;
-  z-index: -1;
-  border-radius: 50%;
-  background: rgba(37,99,235,.17);
-  filter: blur(100px);
+  top: 15px;
+  right: 3%;
+  font-size: clamp(120px, 22vw, 280px);
+  font-weight: 900;
+  letter-spacing: -15px;
+  color: rgba(37, 99, 235, 0.035);
   pointer-events: none;
+  line-height: 1;
 }
 
-/* Main layout */
+/* MAIN CONTAINER */
 
 .pim-founder-container {
   position: relative;
-  max-width: 1190px;
+  z-index: 1;
+  max-width: 1180px;
   margin: auto;
   display: grid;
-  grid-template-columns: .9fr 1.1fr;
+  grid-template-columns: 0.95fr 1.05fr;
   align-items: center;
-  gap: 95px;
+  gap: 90px;
 }
 
-/* Photo frame */
+/* IMAGE */
 
 .pim-founder-image {
   position: relative;
   width: 100%;
-  max-width: 440px;
-  padding: 12px;
-  border: 1px solid rgba(96,165,250,.38);
-  background: linear-gradient(
-    145deg,
-    rgba(37,99,235,.24),
-    rgba(255,255,255,.025)
-  );
-  border-radius: 7px;
+  max-width: 455px;
+  padding: 0 18px 18px 0;
 }
 
 .pim-founder-image::before {
   content: "";
   position: absolute;
-  width: 110px;
-  height: 110px;
-  right: -28px;
-  top: -28px;
-  border-top: 2px solid #3b82f6;
-  border-right: 2px solid #3b82f6;
-  pointer-events: none;
+  top: -15px;
+  left: -15px;
+  width: 100px;
+  height: 100px;
+  border-top: 2px solid #2563eb;
+  border-left: 2px solid #2563eb;
 }
 
 .pim-founder-image::after {
-  content: "PIM / FOUNDER";
+  content: "";
   position: absolute;
-  left: -45px;
-  bottom: 70px;
-  transform: rotate(-90deg);
-  transform-origin: center;
-  color: rgba(255,255,255,.45);
-  font-size: 9px;
-  letter-spacing: 4px;
-  font-weight: 700;
+  right: 0;
+  bottom: 0;
+  width: 78%;
+  height: 80%;
+  background: #eaf1ff;
+  z-index: -1;
 }
 
 .pim-founder-image img {
-  position: relative;
   display: block;
-  z-index: 1;
+  position: relative;
   width: 100%;
   height: 545px;
   object-fit: cover;
   object-position: center top;
   border-radius: 3px;
-  filter: saturate(.94);
-  transition: transform .6s ease, filter .6s ease;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+  transition: transform 0.5s ease;
 }
 
 .pim-founder-image:hover img {
-  transform: scale(1.015);
-  filter: saturate(1.08);
+  transform: translateY(-5px);
 }
 
-/* Photo badge */
+/* IMAGE LABEL */
 
 .pim-founder-label {
   position: absolute;
-  z-index: 3;
-  left: 25px;
-  bottom: 25px;
-  padding: 13px 17px;
-  background: rgba(8,14,27,.88);
-  backdrop-filter: blur(12px);
-  border-left: 3px solid #3b82f6;
-  color: white;
+  left: 15px;
+  bottom: 35px;
+  z-index: 2;
+  padding: 13px 18px;
+  background: #111827;
+  color: #ffffff;
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 2.5px;
 }
 
-/* Content */
+/* CONTENT */
 
 .pim-founder-content {
-  position: relative;
-  z-index: 2;
+  max-width: 570px;
 }
 
 .pim-founder-eyebrow {
   display: flex;
   align-items: center;
-  gap: 13px;
-  margin-bottom: 28px;
-  color: #60a5fa;
+  gap: 12px;
+  margin: 0 0 25px;
+  color: #2563eb;
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 3px;
+  text-transform: uppercase;
 }
 
 .pim-founder-eyebrow::before {
   content: "";
-  display: block;
-  width: 30px;
-  height: 1px;
-  background: #3b82f6;
+  width: 35px;
+  height: 2px;
+  background: #2563eb;
 }
 
+/* HEADLINE */
+
 .pim-founder-content h2 {
-  margin: 0 0 40px;
-  color: #f8fafc;
-  font-size: clamp(42px, 5vw, 68px);
+  margin: 0 0 35px;
+  color: #111827;
+  font-size: clamp(42px, 5vw, 65px);
   font-weight: 800;
   line-height: 1.08;
   letter-spacing: -3px;
 }
 
 .pim-founder-content h2 span {
-  color: #60a5fa;
-  text-shadow: 0 0 35px rgba(59,130,246,.25);
+  color: #2563eb;
 }
 
-/* Founder identity */
+/* NAME */
 
 .pim-founder-content h3 {
   margin: 0 0 10px;
-  color: #fff;
-  font-size: 30px;
+  color: #111827;
+  font-size: 29px;
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
+
+/* DESIGNATION */
 
 .pim-founder-role {
   margin: 0;
-  color: #60a5fa;
+  color: #2563eb;
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .pim-founder-role span {
   display: block;
-  margin-top: 8px;
-  color: #94a3b8;
+  margin-top: 7px;
+  color: #7b8493;
   font-size: 12px;
   font-weight: 400;
-  letter-spacing: .5px;
 }
 
-/* Divider */
+/* DIVIDER */
 
 .pim-founder-line {
-  width: 75px;
+  width: 65px;
   height: 3px;
-  margin: 32px 0;
-  background: linear-gradient(90deg, #3b82f6, #60a5fa, transparent);
+  margin: 30px 0;
+  background: #2563eb;
 }
 
-/* Message */
+/* MESSAGE */
 
 .pim-founder-message {
   max-width: 510px;
   margin: 0;
-  color: #b6c2d2;
-  font-size: 16px;
-  line-height: 1.95;
+  color: #606b7b;
+  font-size: 15px;
   font-weight: 400;
+  line-height: 1.95;
 }
 
-/* CTA */
+/* BUTTON */
 
 .pim-founder-button {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 35px;
-  padding: 17px 25px;
-  color: #fff;
-  background: #2563eb;
-  border: 1px solid #3b82f6;
-  border-radius: 4px;
+  justify-content: space-between;
+  gap: 25px;
+  margin-top: 32px;
+  padding: 16px 23px;
+  background: #111827;
+  border: 1px solid #111827;
+  border-radius: 3px;
+  color: #ffffff;
   text-decoration: none;
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: .5px;
-  box-shadow: 0 10px 35px rgba(37,99,235,.18);
-  transition: .3s ease;
+  transition: all 0.3s ease;
 }
 
 .pim-founder-button:hover {
-  background: #fff;
-  color: #101827;
-  transform: translateY(-4px);
-  box-shadow: 0 15px 35px rgba(37,99,235,.25);
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  transform: translateY(-3px);
 }
 
-/* Tablet */
+/* TABLET */
 
 @media (max-width: 900px) {
   .pim-founder {
-    padding: 85px 25px;
+    padding: 80px 25px;
   }
 
   .pim-founder-container {
-    gap: 55px;
+    gap: 45px;
   }
 
   .pim-founder-image img {
@@ -271,43 +245,37 @@
   }
 }
 
-/* Mobile */
+/* MOBILE */
 
 @media (max-width: 650px) {
   .pim-founder {
-    padding: 70px 22px;
+    padding: 65px 20px;
   }
 
   .pim-founder-container {
     grid-template-columns: 1fr;
-    gap: 45px;
+    gap: 38px;
   }
 
   .pim-founder-image {
     max-width: 100%;
-    margin: 0 auto;
+    padding: 0 12px 12px 0;
   }
 
   .pim-founder-image img {
+    width: 100%;
     height: auto;
     aspect-ratio: 4 / 5;
     object-fit: cover;
     object-position: center top;
   }
 
-  .pim-founder-image::before {
-    right: -10px;
-    top: -10px;
-    width: 75px;
-    height: 75px;
-  }
-
-  .pim-founder-image::after {
-    left: -27px;
+  .pim-founder-content {
+    max-width: 100%;
   }
 
   .pim-founder-content h2 {
-    font-size: 43px;
+    font-size: 42px;
     letter-spacing: -2px;
   }
 
@@ -322,6 +290,16 @@
 
   .pim-founder-button {
     width: 100%;
-    justify-content: space-between;
+  }
+}
+
+/* REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .pim-founder *,
+  .pim-founder *::before,
+  .pim-founder *::after {
+    transition: none !important;
+    animation: none !important;
   }
 }
