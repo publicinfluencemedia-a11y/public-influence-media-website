@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <script id="pre">try{document.documentElement.setAttribute("data-theme",localStorage.getItem("pim-theme")||"dark")}catch(e){document.documentElement.setAttribute("data-theme","dark")}</script>
 <title>Public Influence Media | Digital Marketing &amp; Political Campaigns</title>
+<link rel="icon" type="image/jpeg" href="https://www.publicinfluencemedia.in/assets/logo-cropped.jpg">
+<link rel="shortcut icon" href="https://www.publicinfluencemedia.in/assets/logo-cropped.jpg">
+<link rel="apple-touch-icon" href="https://www.publicinfluencemedia.in/assets/logo-cropped.jpg">
 <meta name="description" content="Public Influence Media helps brands and political campaigns grow through strategy, design, ads, social media and data-driven communication.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap">
 <style>
@@ -296,6 +299,14 @@ footer small{display:inline-block;margin-top:8px}
 .fphoto.nophoto{aspect-ratio:3/4;display:grid;place-items:center;background:var(--grad);color:#fff;font:800 3.2rem Manrope,sans-serif}
 .fphoto.nophoto .ini{display:block}
 [data-theme="light"] .fphoto{box-shadow:0 0 0 8px #fff,0 26px 60px -28px #2563eb}
+/* ===== founder layout fix ===== */
+.founder{display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);gap:clamp(24px,5vw,60px);align-items:center;padding:clamp(24px,4vw,52px)}
+.founder .fphoto{width:100%;max-width:320px;margin:0}
+.founder h2{font-size:clamp(1.8rem,3.4vw,2.8rem);margin-bottom:.4em}
+.founder h3{font-size:1.4rem;margin-bottom:.15em}
+.founder blockquote{font-size:1.05rem;line-height:1.75;margin:0 0 22px}
+.founder .btn{white-space:nowrap}
+@media(max-width:760px){.founder{grid-template-columns:1fr;text-align:center}.founder .fphoto{margin-inline:auto;max-width:280px}}
 </style>
 </head>
 <body>
