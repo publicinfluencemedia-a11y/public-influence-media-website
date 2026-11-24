@@ -576,7 +576,7 @@ var r=b.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
 for(var i=0;i<9;i++){var d=document.createElement('i');d.className='puff';d.style.left=x+'px';d.style.top=(y+10)+'px';d.style.setProperty('--dx',(Math.random()*90-45)+'px');d.style.setProperty('--dy',(20+Math.random()*60)+'px');d.style.animationDelay=(i*40)+'ms';document.body.appendChild(d);setTimeout(function(n){return function(){n.remove()}}(d),1300)}
 b.classList.add('launch');scrollTo({top:0,behavior:'smooth'});
 setTimeout(function(){b.classList.remove('launch')},1150);
-var t0=Date.now(),c=setInterval(function(){if(scrollY<4||Date.now()-t0>7000){clearInterval(c);if(scrollY<4){var t=document.createElement('div');t.className='toast';t.textContent='🚀 Houston, hum top pe pahunch gaye!';document.body.appendChild(t);setTimeout(function(){t.remove()},2800)}}},120)})
+var t0=Date.now(),c=setInterval(function(){if(scrollY<4||Date.now()-t0>7000){clearInterval(c);if(scrollY<4){var t=document.createElement('div');t.className='toast';t.textContent='🚀 Dosto, hum top pe pahunch gaye!';document.body.appendChild(t);setTimeout(function(){t.remove()},2800)}}},120)})
 })();
 </script>
 </body>
