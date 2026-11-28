@@ -371,6 +371,49 @@ footer small{display:inline-block;margin-top:8px}
 @keyframes blastX{0%,20%{translate:0 0}100%{translate:130px 0}}
 @keyframes blastY{0%{transform:translateY(0) rotate(-45deg);animation-timing-function:ease-out}20%{transform:translateY(10px) rotate(-45deg) scaleY(.82);animation-timing-function:cubic-bezier(.5,0,.9,.4)}100%{transform:translateY(-115vh) rotate(-22deg) scale(1.4)}}
 @media(prefers-reduced-motion:reduce){.rv-in,.rv-in .grid>*,.rv-in .seo>*,.rv-in .rv>*,.rv-in .contact>*,.rv-in details{opacity:1!important}}
+/* ===== smooth performance + mobile menu ===== */
+html{-webkit-tap-highlight-color:transparent}
+.blob,[data-theme="light"] .blob{filter:none;opacity:1!important;will-change:transform}
+.b1{background:radial-gradient(circle,rgba(47,91,255,.5),transparent 65%)}
+.b2{background:radial-gradient(circle,rgba(59,107,255,.45),transparent 65%)}
+.b3{background:radial-gradient(circle,rgba(56,189,248,.3),transparent 65%)}
+[data-theme="light"] .b1{background:radial-gradient(circle,rgba(147,180,255,.7),transparent 65%)}
+[data-theme="light"] .b2{background:radial-gradient(circle,rgba(165,180,252,.6),transparent 65%)}
+[data-theme="light"] .b3{background:radial-gradient(circle,rgba(125,211,252,.5),transparent 65%)}
+body::before{animation:none}
+.card,details,input,textarea,.pills span,.tag,.gwrap,.btn,.social a{backdrop-filter:none}
+.card,.gwrap{background:linear-gradient(160deg,rgba(26,38,70,.94),rgba(14,22,44,.94))}
+[data-theme="light"] .card,[data-theme="light"] .gwrap{background:linear-gradient(160deg,#fff,#f3f6fc)}
+#glow{left:0;top:0;transform:translate(-999px,-999px);will-change:transform}
+#ring{will-change:transform}
+.hero::before{will-change:transform;filter:blur(50px)}
+.burger{display:none;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--card);place-items:center;cursor:pointer;padding:0}
+.burger span{display:block;width:18px;height:2px;border-radius:2px;background:var(--text);grid-area:1/1;transition:transform .3s,opacity .3s}
+.burger span:nth-child(1){transform:translateY(-6px)}.burger span:nth-child(3){transform:translateY(6px)}
+.burger.open span:nth-child(1){transform:rotate(45deg)}.burger.open span:nth-child(2){opacity:0}.burger.open span:nth-child(3){transform:rotate(-45deg)}
+.mnav{display:none;margin-top:10px;padding:10px;border:1px solid var(--line);border-radius:22px;background:var(--bg);box-shadow:0 24px 50px -24px #000}
+.mnav.open{display:grid;gap:2px;animation:popin .35s cubic-bezier(.3,1.5,.5,1) both;transform-origin:50% 0}
+.mnav a{padding:14px 16px;border-radius:14px;font-weight:600}.mnav a:hover{background:var(--card)}
+.mnav .btn{justify-content:center;margin-top:6px;color:#fff}
+@media(min-width:861px){.mnav{display:none!important}}
+@media(max-width:860px){
+.burger{display:grid}
+body::before,#glow,.b3,.hero::before,.card::after{display:none}
+section{padding:72px 0}
+.hero{padding:70px 0 50px}
+.hero .eyebrow{letter-spacing:.14em}
+.stats{gap:30px}
+.cta .btn{flex:1 1 auto;justify-content:center}
+}
+@media(max-width:520px){
+.navr>.btn{display:none}
+.logo img{height:32px}
+nav{padding:8px 10px 8px 14px}
+.hero h1{font-size:clamp(2.4rem,12vw,3.4rem)}
+h2{font-size:clamp(1.7rem,8vw,2.2rem)}
+.chat{right:12px;max-width:220px}
+.founder{padding:22px}
+}
 </style>
 <script type="application/ld+json">
 {
@@ -547,9 +590,9 @@ footer small{display:inline-block;margin-top:8px}
 <body>
 <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div id="glow"></div><div id="ring"></div><div id="prog"></div>
 <header><div class="wrap"><nav>
-<a class="logo" href="#home"><img src="assets/logo-cropped.jpg" alt="Public Influence Media logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><b>Public Influence Media</b></a>
+<a class="logo" href="#home"><img src="https://www.publicinfluencemedia.in/assets/logo-cropped.jpg" data-f="assets/logo-cropped.jpg" alt="Public Influence Media logo" onerror="if(this.dataset.f){var s=this.dataset.f;this.dataset.f='';this.src=s}else{this.style.display='none';this.nextElementSibling.style.display='block'}"><b>Public Influence Media</b></a>
 <div class="links"><a href="#services">Services</a><a href="#why-us">Why Us</a><a href="#strategy">Strategy</a><a href="#campaigns">Campaigns</a><a href="#reviews">Reviews</a><a href="#game">Play 🎮</a><a href="#contact">Contact</a></div>
-<div class="navr"><button class="tgl" id="tgl" type="button" aria-label="Switch theme"></button><a class="btn pri sm" href="#contact">Contact</a></div></nav></div></header>
+<div class="navr"><button class="tgl" id="tgl" type="button" aria-label="Switch theme"></button><a class="btn pri sm" href="#contact">Contact</a><button class="burger" id="burger" type="button" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav><div class="mnav" id="mnav"><a href="#services">Services</a><a href="#why-us">Why Us</a><a href="#strategy">Strategy</a><a href="#campaigns">Campaigns</a><a href="#reviews">Reviews</a><a href="#game">Play 🎮</a><a class="btn pri" href="#contact">Contact</a></div></div></header>
 
 <main id="home">
 <section class="hero"><canvas id="net"></canvas><div class="wrap">
@@ -661,21 +704,21 @@ footer small{display:inline-block;margin-top:8px}
 <h3 style="margin-top:50px">Visit us</h3><p>Public Influence Media, Ghaziabad<br>Niti Khand 3, Manoj Vihar, Indirapuram, Ghaziabad, Uttar Pradesh 201014</p>
 <iframe loading="lazy" title="Map" src="https://www.google.com/maps?q=Niti%20Khand%203%2C%20Manoj%20Vihar%2C%20Indirapuram%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201014&output=embed"></iframe>
 <div class="card founder" style="margin-top:50px">
-<div class="fphoto"><img loading="lazy" decoding="async" src="ayan-founder.png" alt="MOHD. AYAN - Founder &amp; CEO" onerror="this.parentNode.classList.add('nophoto');this.remove()"><span class="ini">MA</span></div>
+<div class="fphoto"><img src="https://www.publicinfluencemedia.in/ayan-founder.png" data-f="ayan-founder.png" alt="MOHD. AYAN - Founder &amp; CEO" onerror="if(this.dataset.f){var s=this.dataset.f;this.dataset.f='';this.src=s}else{this.parentNode.classList.add('nophoto');this.remove()}"><span class="ini">MA</span></div>
 <div><span class="tag">Leadership &amp; Vision</span><p style="margin:0;font-size:.8rem;letter-spacing:.14em">THE PERSON BEHIND THE VISION</p><h2 style="font-size:clamp(1.8rem,4vw,2.8rem)">Building Brands. <span class="grad">Creating Impact.</span></h2>
 <h3>MOHD. AYAN</h3><p>Founder &amp; CEO Public Influence Media</p>
 <blockquote>“Empowering businesses with innovative digital strategies, creative thinking and technology. Our mission is to turn ideas into impactful brands and help businesses grow digitally.”</blockquote>
 <a class="btn pri" href="#contact">Let’s Build Something Great ↗</a></div></div>
 </div></section>
 </main>
-<footer><div class="wrap"><img src="assets/logo-cropped.jpg" alt="Public Influence Media logo" onerror="this.remove()"><br>© 2026 All rights reserved by Public Influence Media.<br>Digital marketing agency in Ghaziabad, Indirapuram, Noida &amp; Delhi NCR<br>Niti Khand 3, Manoj Vihar, Indirapuram, Ghaziabad, Uttar Pradesh 201014 · <a href="tel:+917228853849">+91 72288 53849</a> · <a href="mailto:publicinfluencemedia@gmail.com">publicinfluencemedia@gmail.com</a><br><small>Made with ❤️ in Ghaziabad</small></div></footer>
+<footer><div class="wrap"><img src="https://www.publicinfluencemedia.in/assets/logo-cropped.jpg" data-f="assets/logo-cropped.jpg" alt="Public Influence Media logo" onerror="if(this.dataset.f){var s=this.dataset.f;this.dataset.f='';this.src=s}else{this.remove()}"><br>© 2026 All rights reserved by Public Influence Media.<br>Digital marketing agency in Ghaziabad, Indirapuram, Noida &amp; Delhi NCR<br>Niti Khand 3, Manoj Vihar, Indirapuram, Ghaziabad, Uttar Pradesh 201014 · <a href="tel:+917228853849">+91 72288 53849</a> · <a href="mailto:publicinfluencemedia@gmail.com">publicinfluencemedia@gmail.com</a><br><small>Made with ❤️ in Ghaziabad</small></div></footer>
 <button class="totop" id="totop" type="button" aria-label="Back to top"><svg viewBox="0 0 54 54" aria-hidden="true"><circle class="trk" cx="27" cy="27" r="24"/><circle class="prg" id="tprg" cx="27" cy="27" r="24"/></svg><span class="rk">🚀</span><span class="tip">Top pe chalein</span></button>
 <div class="chat" id="chat" hidden><button class="x" type="button" aria-label="Close">×</button><div id="chtxt"></div></div>
 <a class="wa" href="https://wa.me/917228853849" aria-label="WhatsApp">💬</a>
 <script>
 (function(){
 var g=document.getElementById('glow');
-addEventListener('pointermove',function(e){g.style.left=e.clientX+'px';g.style.top=e.clientY+'px'});
+addEventListener('pointermove',function(e){g.style.transform='translate('+e.clientX+'px,'+e.clientY+'px)'});
 document.querySelectorAll('.card').forEach(function(c){
 c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;c.style.setProperty('--mx',x+'px');c.style.setProperty('--my',y+'px');
 if(e.pointerType==='mouse'&&c.clientHeight<420){c.style.transform='perspective(800px) rotateX('+((y/r.height-.5)*-8)+'deg) rotateY('+((x/r.width-.5)*8)+'deg) translateY(-4px)'}});
@@ -709,7 +752,7 @@ document.querySelectorAll('a,button,summary,input,textarea').forEach(function(el
 document.querySelectorAll('.btn').forEach(function(b){b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.22)+'px,'+((e.clientY-r.top-r.height/2)*.3)+'px)'});b.addEventListener('pointerleave',function(){b.style.transform=''})})}
 /* particle network */
 var cv=document.getElementById('net'),cx=cv.getContext('2d'),W,H,P=[],mx=-999,my=-999,vis=true;
-function size(){var r=cv.getBoundingClientRect();W=cv.width=r.width;H=cv.height=r.height;var n=Math.min(70,Math.floor(W/20));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.45,vy:(Math.random()-.5)*.45,r:Math.random()*1.6+.8})}
+function size(){var r=cv.getBoundingClientRect();W=cv.width=r.width;H=cv.height=r.height;var n=Math.min(innerWidth<760?24:46,Math.floor(W/24));P=[];for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.45,vy:(Math.random()-.5)*.45,r:Math.random()*1.6+.8})}
 size();addEventListener('resize',size);
 cv.parentNode.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});
 cv.parentNode.addEventListener('pointerleave',function(){mx=my=-999});
@@ -802,7 +845,16 @@ var r=b.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;
 for(var i=0;i<9;i++){var d=document.createElement('i');d.className='puff';d.style.left=x+'px';d.style.top=(y+10)+'px';d.style.setProperty('--dx',(Math.random()*90-45)+'px');d.style.setProperty('--dy',(20+Math.random()*60)+'px');d.style.animationDelay=(i*40)+'ms';document.body.appendChild(d);setTimeout(function(n){return function(){n.remove()}}(d),1300)}
 b.classList.add('launch');scrollTo({top:0,behavior:'smooth'});
 setTimeout(function(){b.classList.remove('launch')},1150);
-var t0=Date.now(),c=setInterval(function(){if(scrollY<4||Date.now()-t0>7000){clearInterval(c);if(scrollY<4){var t=document.createElement('div');t.className='toast';t.textContent='🚀 Houston, hum top pe pahunch gaye!';document.body.appendChild(t);setTimeout(function(){t.remove()},2800)}}},120)})
+var t0=Date.now(),c=setInterval(function(){if(scrollY<4||Date.now()-t0>7000){clearInterval(c);if(scrollY<4){var t=document.createElement('div');t.className='toast';t.textContent='🚀 Dosto, hum top pe pahunch gaye!';document.body.appendChild(t);setTimeout(function(){t.remove()},2800)}}},120)})
+})();
+
+(function(){
+var b=document.getElementById('burger'),m=document.getElementById('mnav');if(!b||!m)return;
+function set(o){b.classList.toggle('open',o);m.classList.toggle('open',o);b.setAttribute('aria-expanded',o)}
+b.addEventListener('click',function(){set(!m.classList.contains('open'))});
+m.addEventListener('click',function(e){if(e.target.closest('a'))set(false)});
+addEventListener('scroll',function(){if(m.classList.contains('open'))set(false)},{passive:true});
+addEventListener('resize',function(){if(innerWidth>860)set(false)});
 })();
 </script>
 </body>
